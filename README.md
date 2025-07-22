@@ -3,10 +3,10 @@ Comparing multiple models in Python to predict cardiovascular disease based on p
 
 Input variables:
 
-ID: Unique identifier for each patient.
-age: Age of the patient in days.
-age_years: Age of the patient in years (derived from age).
-gender: Gender of the patient. Categorical variable (1: Female, 2: Male).
+ID: Unique identifier for each patient. <br />
+age: Age of the patient in days. <br />
+age_years: Age of the patient in years (derived from age). <br />
+gender: Gender of the patient. Categorical variable (1: Female, 2: Male). <br />
 height: Height of the patient in centimeters.
 weight: Weight of the patient in kilograms.
 ap_hi: Systolic blood pressure.
