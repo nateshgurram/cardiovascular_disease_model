@@ -21,7 +21,7 @@ Comparing multiple models in Python to predict cardiovascular disease based on p
 
 # Output: <br />
 
-* bp_category: Blood pressure category based on ap_hi and ap_lo variables. Multi-class variable that includes "Normal", "Elevated", "Hypertension Stage 1", "Hypertension Stage 2", and "Hypertensive Crisis". <br />
+* bp_category: Blood pressure category based on ap_hi and ap_lo variables. Multi-class variable that includes "Normal", "Elevated", "Hypertension Stage 1", and "Hypertension Stage 2". <br />
 * error_score: Custom evaluation metrics using functions imported from sklearn.metrics to get false positives and negatives, and also evaluate individual model performance.  <br />
 
 
