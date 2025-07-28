@@ -1,5 +1,5 @@
 # cardiovascular_disease_model
-Comparing multiple models in Python to predict cardiovascular disease based on patient vitals.
+Comparing the performance multiple models built on Python in predicting cardiovascular disease based on patient vitals.
 
 # Input variables:
 
