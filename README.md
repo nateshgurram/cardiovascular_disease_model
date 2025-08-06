@@ -22,7 +22,7 @@ Comparing the performance of multiple Python machine learning models in predicti
 # Output: <br />
 
 * cardio: Presence or absence of cardiovascular disease. Target variable. Binary (0: Absence, 1: Presence). <br />
-* error_score: Custom evaluation metrics using functions imported from sklearn.metrics to get false positives and negatives, and also evaluate individual model performance.  <br />
+
 
 
 ## Sources
