@@ -1,6 +1,10 @@
 # cardiovascular_disease_model
 Comparing the performance of multiple Python machine learning models in predicting cardiovascular disease based on patient vitals.
 
+# Modeling Overview:
+* Models: Logistic Regression, Support Vector Classifier (SVC), Random Forest, AdaBoost, Gradient Boosting
+* Evaluation Method: One train-test-split, hyperparameter tuning using 5-fold cross validation.
+
 # Input variables:
 
 * ID: Unique identifier for each patient. <br />
