@@ -78,7 +78,3 @@ All models ended up in a similar performance range, but Gradient Boosting offere
 ## Data Source  
 [Kaggle – Cardiovascular Disease Dataset](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)  
 
----
-
-## Repository Link  
-Full code and notebooks: [GitHub – Cardiovascular Disease Project](https://github.com/yourusername/Cardiovascular-Disease-Project)  
