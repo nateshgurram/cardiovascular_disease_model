@@ -71,7 +71,7 @@ Exploration showed:
 ---
 
 ## Conclusion  
-All models ended up in a similar performance range, but Gradient Boosting offered a slight edge. More importantly, the project showed how algorithms prioritize features differently: Random Forest shifted focus after tuning, AdaBoost cut down to just three predictors, and Gradient Boosting remained consistent.  Cross-validation confirmed these results were reliable. 
+All models ended up in a similar performance range, but Gradient Boosting offered a slight edge. More importantly, the project showed how algorithms prioritize features differently: Random Forest shifted focus after tuning, AdaBoost cut down to just three predictors, and Gradient Boosting remained consistent. 
 
 ---
 
