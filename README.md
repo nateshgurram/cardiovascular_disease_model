@@ -1,35 +1,86 @@
-# cardiovascular_disease_model
-Comparing the performance of multiple Python machine learning models in predicting cardiovascular disease based on patient vitals.
+# Cardiovascular Disease Risk Prediction – Machine Learning Models  
 
-# Modeling Overview:
-* Models: Logistic Regression, Support Vector Classifier (SVC), Random Forest, AdaBoost, Gradient Boosting
-* Evaluation Method: One train-test-split, hyperparameter tuning using 5-fold cross validation.
+Comparing the performance of multiple classification algorithms to predict cardiovascular disease (CVD) from patient health data.  
 
-# Input variables:
+---
 
-* ID: Unique identifier for each patient. <br />
-* age: Age of the patient in days. <br />
-* age_years: Age of the patient in years (derived from age). <br />
-* gender: Gender of the patient. Categorical variable (1: Female, 2: Male). <br />
-* height: Height of the patient in centimeters. <br />
-* weight: Weight of the patient in kilograms. <br />
-* ap_hi: Systolic blood pressure. <br />
-* ap_lo: Diastolic blood pressure. <br />
-* cholesterol: Cholesterol levels. Categorical variable (1: Normal, 2: Above Normal, 3: Well Above Normal). <br />
-* gluc: Glucose levels. Categorical variable (1: Normal, 2: Above Normal, 3: Well Above Normal). <br />
-* smoke: Smoking status. Binary variable (0: Non-smoker, 1: Smoker). <br />
-* alco: Alcohol intake. Binary variable (0: Does not consume alcohol, 1: Consumes alcohol). <br />
-* active: Physical activity. Binary variable (0: Not physically active, 1: Physically active). <br />
-* bp_category: Blood pressure category based on ap_hi and ap_lo variables. Multi-class variable that includes "Normal", "Elevated", "Hypertension Stage 1", and "Hypertension Stage 2". <br />
-* bmi: Body Mass Index, derived from weight and height. Calculated as BMI = (weight in kg) / (height in m)^2 <br />
+## Overview  
+This project evaluated five machine learning models (Logistic Regression, Support Vector Classifier, Random Forest, AdaBoost, and Gradient Boosting) on a dataset of ~70,000 patient records.  
+The goal was to build reproducible models to predict CVD and identify the most important contributing factors.  
 
-# Output: <br />
+Key findings:  
+- All models achieved accuracy around **72–73%** and F1-scores near **0.74**.  
+- **Gradient Boosting** performed best overall, though the margin was small.  
+- **Systolic blood pressure (ap_hi)** consistently dominated predictions, followed by **age** and **cholesterol**, while lifestyle variables (smoking, alcohol, physical activity) had little predictive impact.  
 
-* cardio: Presence or absence of cardiovascular disease. Target variable. Binary (0: Absence, 1: Presence). <br />
+Cross-validation confirmed results were stable across folds. The project highlighted not only which model performed best, but also how different algorithms interpret the same dataset in different ways.  
 
+---
 
+## Repository Structure  
+- `00_cardiovascular_disease_EDA.ipynb` → Data loading, cleaning, preprocessing, and exploratory data analysis  
+- `01_cardiovascular_disease_modeling.ipynb` → Baseline models + hyperparameter tuning  
+- `02_cardiovascular_disease_tree_modeling.ipynb` → Tree-based models with estimator tuning  
+- `03_cardiovascular_disease_model_comparison.ipynb` → Model performance comparison and visualization  
+- `model_utils.ipynb` → Utility functions for plotting graphs and saving outputs  
 
-## Sources
+---
 
-Kaggle Cardiovascular Disease Dataset
-https://www.kaggle.com/datasets/colewelkins/cardiovascular-disease?select=cardio_data_processed.csv
+## Data Preprocessing and Exploration  
+- Removed outliers (implausible blood pressures, unrealistic body measures, invalid cases).  
+- Reduced dataset from ~70,000 to ~61,000 clean records.  
+- Converted age from days → years for interpretability.  
+- One-hot encoded blood pressure categories to analyze correlations.  
+
+Exploration showed:  
+- **Stage 2 hypertension** patients faced nearly an **80% likelihood** of CVD.  
+- Patients **aged 60+** consistently had the highest risk across all groups.  
+
+---
+
+## Modeling  
+- StandardScaler applied to continuous features using a `ColumnTransformer`; binary/dummy variables left unchanged.  
+- Trained and compared Logistic Regression, SVC, Random Forest, AdaBoost, and Gradient Boosting.  
+- Evaluated models with accuracy, precision, recall, and F1-score.  
+- Hyperparameter tuning with **GridSearchCV (5-fold cross-validation)**.  
+- Saved feature importances, coefficients, and permutation scores for each model before and after tuning.  
+- For tree-based models, graphed how test error changed as the number of estimators increased.  
+
+---
+
+## Results & Key Insights  
+- **Performance:**  
+  - Logistic Regression: Accuracy ~72.2%, F1 ~75% (minimal change after tuning).  
+  - SVC: Accuracy ~72.9%, F1 ~75% (stable after tuning).  
+  - Random Forest: Biggest improvement from tuning; accuracy ↑ ~3.2%, F1 ↑ ~5%. Optimal estimators: ~60–75.  
+  - AdaBoost: Accuracy ~71.6%, F1 ~74%; tuned model narrowed to only 3 features. Optimal estimators: ~9–10.  
+  - Gradient Boosting: Accuracy ~72.8%, F1 ~74%; feature importance stable. Optimal estimators: ~150.  
+
+- **Feature Importance:**  
+  - **ap_hi (systolic blood pressure)** was dominant across all models.  
+  - **Age** and **cholesterol** were consistent secondary predictors.  
+  - Lifestyle variables (smoke, alco, active) had little predictive power.  
+
+- **Interpretability vs. Power:**  
+  - Logistic Regression and SVC → easier to interpret, coefficients/permutation scores show influence of each variable.  
+  - Ensemble methods (Random Forest, AdaBoost, Gradient Boosting) → captured more complex interactions but relied on fewer, stronger predictors.  
+
+- **Best Model:**  
+  - **Gradient Boosting** provided the best balance of precision and recall, with the most stable performance.  
+
+---
+
+## Conclusion  
+All models ended up in a similar performance range, but Gradient Boosting offered a slight edge. More importantly, the project showed how algorithms prioritize features differently: Random Forest shifted focus after tuning, AdaBoost cut down to just three predictors, and Gradient Boosting remained consistent.  
+
+Cross-validation confirmed these results were reliable. Organizing the pipeline across modular notebooks and saving intermediate outputs ensured reproducibility and flexibility for future extensions.  
+
+---
+
+## Data Source  
+[Kaggle – Cardiovascular Disease Dataset](https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset)  
+
+---
+
+## Repository Link  
+Full code and notebooks: [GitHub – Cardiovascular Disease Project](https://github.com/yourusername/Cardiovascular-Disease-Project)  
