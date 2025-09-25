@@ -1,12 +1,12 @@
 # Cardiovascular Disease Risk Prediction – Machine Learning Models  
 
-Comparing the performance of multiple classification algorithms to predict cardiovascular disease (CVD) from patient health data.  
+Comparing the performance of multiple Python machine learning models in predicting cardiovascular disease (CVD) based on patient vitals. 
 
 ---
 
 ## Overview  
 This project evaluated five machine learning models (Logistic Regression, Support Vector Classifier, Random Forest, AdaBoost, and Gradient Boosting) on a dataset of ~70,000 patient records.  
-The goal was to build reproducible models to predict CVD and identify the most important contributing factors.  
+The goal was to build reproducible models to predict CVD and identify the most important contributing factors behind each model's decision-making.  
 
 Key findings:  
 - All models achieved accuracy around **72–73%** and F1-scores near **0.74**.  
@@ -17,11 +17,11 @@ Cross-validation confirmed results were stable across folds. The project highlig
 
 ---
 
-## Repository Structure  
-- `00_cardiovascular_disease_EDA.ipynb` → Data loading, cleaning, preprocessing, and exploratory data analysis  
-- `01_cardiovascular_disease_modeling.ipynb` → Baseline models + hyperparameter tuning  
-- `02_cardiovascular_disease_tree_modeling.ipynb` → Tree-based models with estimator tuning  
-- `03_cardiovascular_disease_model_comparison.ipynb` → Model performance comparison and visualization  
+## Structure  
+- `00_EDA.ipynb` → Data loading, cleaning, preprocessing, and exploratory data analysis  
+- `01_modeling.ipynb` → Baseline models + hyperparameter tuning  
+- `02_tree_modeling.ipynb` → Tree-based models with estimator tuning  
+- `03_model_comparison.ipynb` → Model performance comparison and visualization  
 - `model_utils.ipynb` → Utility functions for plotting graphs and saving outputs  
 
 ---
@@ -39,7 +39,7 @@ Exploration showed:
 ---
 
 ## Modeling  
-- StandardScaler applied to continuous features using a `ColumnTransformer`; binary/dummy variables left unchanged.  
+- StandardScaler applied to continuous features using a `ColumnTransformer`; with binary/dummy variables left unchanged.  
 - Trained and compared Logistic Regression, SVC, Random Forest, AdaBoost, and Gradient Boosting.  
 - Evaluated models with accuracy, precision, recall, and F1-score.  
 - Hyperparameter tuning with **GridSearchCV (5-fold cross-validation)**.  
@@ -71,9 +71,7 @@ Exploration showed:
 ---
 
 ## Conclusion  
-All models ended up in a similar performance range, but Gradient Boosting offered a slight edge. More importantly, the project showed how algorithms prioritize features differently: Random Forest shifted focus after tuning, AdaBoost cut down to just three predictors, and Gradient Boosting remained consistent.  
-
-Cross-validation confirmed these results were reliable. Organizing the pipeline across modular notebooks and saving intermediate outputs ensured reproducibility and flexibility for future extensions.  
+All models ended up in a similar performance range, but Gradient Boosting offered a slight edge. More importantly, the project showed how algorithms prioritize features differently: Random Forest shifted focus after tuning, AdaBoost cut down to just three predictors, and Gradient Boosting remained consistent.  Cross-validation confirmed these results were reliable. 
 
 ---
 
