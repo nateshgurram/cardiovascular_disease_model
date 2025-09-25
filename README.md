@@ -1,4 +1,4 @@
-# Cardiovascular Disease Risk Classification – 
+# Cardiovascular Disease Risk Classification 
 
 Comparing the performance of multiple Python machine learning models in predicting cardiovascular disease (CVD) based on patient vitals. 
 
